@@ -1,0 +1,15 @@
+[Unit]
+Description=WAN bounce watchdog
+After=network.target
+After=unifi-core.service
+
+[Service]
+Type=simple
+ExecStart=/data/scripts/wan-bounce.sh
+Restart=always
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
